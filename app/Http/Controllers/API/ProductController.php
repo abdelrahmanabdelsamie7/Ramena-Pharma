@@ -23,12 +23,6 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadfile($request->file('image'), 'products');
         }
-        if ($request->hasFile('video_ar')) {
-            $data['video_ar'] = $this->uploadfile($request->file('video_ar'), 'products/videos/ar');
-        }
-        if ($request->hasFile('video_en')) {
-            $data['video_en'] = $this->uploadfile($request->file('video_en'), 'products/videos/en');
-        }
         $product = Product::create($data);
         return $this->sendSuccess('Product Added Successfully', $product, 201);
     }
@@ -36,22 +30,10 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $data = $request->validated();
-
         if ($request->hasFile('image')) {
             $this->deletefile($product->image);
             $data['image'] = $this->uploadfile($request->file('image'), 'products');
         }
-
-        if ($request->hasFile('video_ar')) {
-            $this->deletefile($product->video_ar);
-            $data['video_ar'] = $this->uploadfile($request->file('video_ar'), 'products/videos/ar');
-        }
-
-        if ($request->hasFile('video_en')) {
-            $this->deletefile($product->video_en);
-            $data['video_en'] = $this->uploadfile($request->file('video_en'), 'products/videos/en');
-        }
-
         $product->update($data);
         return $this->sendSuccess('Product Data Updated Successfully', $product, 200);
     }
@@ -59,8 +41,6 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $this->deletefile($product->image);
-        $this->deletefile($product->video_ar);
-        $this->deletefile($product->video_en);
         $product->delete();
         return $this->sendSuccess('Product Deleted Successfully');
     }

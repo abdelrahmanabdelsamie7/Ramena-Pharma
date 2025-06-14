@@ -10,10 +10,10 @@ class PharmacyRequest extends FormRequest
 
     public function rules(): array
     {
-        $pharmacyId = $this->route('id') ?? $this->route('pharmacy');
+
         return [
-            'title' => 'required|string|max:255|unique:pharmacies,title,' . $pharmacyId,
-            'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'title' => 'required|string|max:255',
+            'logo' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
             'location_name' => 'required|string|max:500',
             'address' => 'required|string|max:500',
             'phone_number' => 'required|string|regex:/^01[0125][0-9]{8}$/',

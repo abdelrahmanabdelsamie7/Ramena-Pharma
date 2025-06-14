@@ -9,11 +9,12 @@ use App\Http\Controllers\API\SponsorController;
 Route::middleware('api')->prefix('admin')->group(function () {
     Route::post('/login', [AdminAuthController::class, 'login']);
     Route::middleware('auth:admins')->group(function () {
-        Route::post('/add', [AdminAuthController::class, 'addAdmin']);
+        Route::post('/add-admin', [AdminAuthController::class, 'addAdmin']);
         Route::get('/getaccount', [AdminAuthController::class, 'getAccount']);
+        Route::get('/all-admins', [AdminAuthController::class, 'allAdmins']);
         Route::post('/logout', [AdminAuthController::class, 'logout']);
         Route::post('/refresh', [AdminAuthController::class, 'refresh']);
-        Route::delete('/delete-admin', [AdminAuthController::class, 'deleteAdmin']);
+        Route::delete('/delete-admin/{id}', [AdminAuthController::class, 'deleteAdmin']);
     });
 });
 

@@ -14,9 +14,9 @@ class ProductRequest extends FormRequest
             'title' => 'required|string|max:255|unique:products,title,' . $productId,
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'video_ar' => 'required|mimetypes:video/mp4,video/quicktime,video/x-msvideo|max:10240',
-            'video_en' => 'required|mimetypes:video/mp4,video/quicktime,video/x-msvideo|max:10240',
+            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:4048',
+            'video_ar' => 'required|url',
+            'video_en' => 'required|url',
         ];
     }
 }

@@ -78,4 +78,13 @@ class AdminAuthController extends Controller
         $admin->delete();
         return response()->json(['message' => 'Admin deleted successfully']);
     }
+    public function allAdmins()
+    {
+        $authAdmin = auth('admins')->user();
+        if (!$authAdmin->is_super_admin) {
+            return response()->json(['error' => 'Unauthorized'], 403);
+        }
+        $admins = Admin::where('is_super_admin', false)->get();
+        return response()->json($admins);
+    }
 }
