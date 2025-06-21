@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminAuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admins', ['except' => ['login', 'addAdmin']]);
+    }
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [

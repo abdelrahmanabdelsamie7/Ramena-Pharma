@@ -1,21 +1,28 @@
 <?php
 namespace App\Http\Controllers\API;
 use App\Models\Product;
-use App\Traits\{ResponseJsonTrait,UploadFileTrait};
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Http\Resources\ProductResource;
+use App\Traits\{ResponseJsonTrait, UploadFileTrait};
+
 class ProductController extends Controller
 {
     use ResponseJsonTrait, UploadFileTrait;
+    public function __construct()
+    {
+        $this->middleware('auth:admins')->only(['store', 'update', 'destroy']);
+    }
     public function index()
     {
-        $products = Product::all();
-        return $this->sendSuccess('All Products Retrieved Successfully!',  $products);
+        $products = Product::withCount('ratings')->get();
+        return $this->sendSuccess('All Products Retrieved Successfully!', ProductResource::collection($products));
     }
     public function show(string $id)
     {
-        $product = Product::with('product_faqs')->findOrFail($id);
-        return $this->sendSuccess('Product Retrieved Successfully!', $product);
+        $product = Product::with(['product_faqs', 'ratings'])->findOrFail($id);
+        return $this->sendSuccess('Product Retrieved Successfully!', new ProductResource($product));
+
     }
     public function store(ProductRequest $request)
     {

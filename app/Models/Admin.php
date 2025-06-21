@@ -8,8 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 class Admin extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens, HasFactory, Notifiable , UsesUuid;
-    protected $table= 'admins';
+    use HasApiTokens, HasFactory, Notifiable, UsesUuid;
+    protected $table = 'admins';
     protected $fillable = [
         'name',
         'email',
@@ -17,8 +17,13 @@ class Admin extends Authenticatable implements JWTSubject
         'is_super_admin'
     ];
     protected $hidden = [
-        'password' , 'remember_token'
+        'password',
+        'remember_token'
     ];
+    public function scopePending($query)
+    {
+        return $query->where('status', 'pending');
+    }
     public function getJWTIdentifier()
     {
         return $this->getKey();

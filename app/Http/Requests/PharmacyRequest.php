@@ -13,7 +13,7 @@ class PharmacyRequest extends FormRequest
 
         return [
             'title' => 'required|string|max:255',
-            'logo' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'logo' => 'required|image|mimes:jpg,jpeg,png,webp|max:4048',
             'location_name' => 'required|string|max:500',
             'address' => 'required|string|max:500',
             'phone_number' => 'required|string|regex:/^01[0125][0-9]{8}$/',

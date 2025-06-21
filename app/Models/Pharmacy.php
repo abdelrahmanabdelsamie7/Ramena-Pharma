@@ -12,6 +12,6 @@ class Pharmacy extends Model
     protected $fillable = ['title', 'logo', 'location_name', 'address', 'phone_number', 'latitude', 'longitude'];
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'pharmacy_product', 'pharmacy_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'pharmacy_product', 'pharmacy_id', 'product_id')->withPivot('id');
     }
 }

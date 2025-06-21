@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 class ProductFaqController extends Controller
 {
     use ResponseJsonTrait;
+    public function __construct()
+    {
+        $this->middleware('auth:admins')->only(['store', 'update', 'destroy']);
+    }
     public function store(ProductFaqRequest $request)
     {
         $product_faq = ProductFaq::create($request->validated());

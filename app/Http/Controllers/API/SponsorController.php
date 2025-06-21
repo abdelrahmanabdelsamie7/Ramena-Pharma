@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 class SponsorController extends Controller
 {
     use ResponseJsonTrait, UploadFileTrait;
+    public function __construct()
+    {
+        $this->middleware('auth:admins')->only(['store', 'update', 'destroy']);
+    }
     public function index()
     {
         $sponsors = Sponsor::all();
