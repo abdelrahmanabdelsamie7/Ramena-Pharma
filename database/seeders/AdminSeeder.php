@@ -13,7 +13,7 @@ class AdminSeeder extends Seeder
             'id' => Str::uuid(),
             'name' => 'Abdelrahman Abdelsamie',
             'email' => 'admin@ramenapharma.com',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('ramenaPharma@123'),
             'is_super_admin' => true,
         ]);
     }

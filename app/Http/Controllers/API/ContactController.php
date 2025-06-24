@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\API;
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use App\Mail\{ReplyToContactMail, NewContactNotificationMail};
+use App\Mail\{ReplyToContactMail};
 use App\traits\ResponseJsonTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
@@ -33,7 +33,6 @@ class ContactController extends Controller
             'message' => $request->message,
             'status' => 'pending',
         ]);
-        Mail::to('abdelrhmanabdelsamie@gmail.com')->send(new NewContactNotificationMail($contact));
         return $this->sendSuccess('Contact message sent successfully', $contact);
     }
     public function show($id)

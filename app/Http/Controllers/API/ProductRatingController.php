@@ -9,9 +9,9 @@ use App\Http\Resources\ProductRatingResource;
 class ProductRatingController extends Controller
 {
     use ResponseJsonTrait;
-    protected function __construct()
+    public function __construct()
     {
-        $this->middleware('auth:admins')->except(['index', 'show', 'destroy']);
+        $this->middleware('auth:admins')->only(['index', 'show', 'destroy']);
     }
     public function index()
     {
@@ -23,7 +23,7 @@ class ProductRatingController extends Controller
     }
     public function show($id)
     {
-        $rating = ProductRating::wit('product')->findOrFail($id);
+        $rating = ProductRating::with('product')->findOrFail($id);
         return $this->sendSuccess(
             'Rating Of Product Retrieved Successfully!',
             new ProductRatingResource($rating)

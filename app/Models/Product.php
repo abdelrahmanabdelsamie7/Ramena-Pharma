@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-use App\Models\{ProductFaq, Pharmacy,ProductRating};
+use App\Models\{ProductFaq, ProductRating};
 use App\traits\{HasSlug, UsesUuid};
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,10 +18,6 @@ class Product extends Model
     {
         return $this->hasMany(ProductFaq::class, 'product_id');
     }
-    public function pharmacies()
-    {
-        return $this->belongsToMany(Pharmacy::class, 'pharmacy_product', 'product_id', 'pharmacy_id')->withPivot('id');
-    }
     public function ratings()
     {
         return $this->hasMany(ProductRating::class);
@@ -30,4 +26,8 @@ class Product extends Model
     {
         return $this->ratings()->avg('stars');
     }
+    // public function pharmacies()
+    // {
+    //     return $this->belongsToMany(Pharmacy::class, 'pharmacy_product', 'product_id', 'pharmacy_id')->withPivot('id');
+    // }
 }

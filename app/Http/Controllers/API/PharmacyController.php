@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\API;
 use App\Http\Requests\PharmacyRequest;
 use App\Models\Pharmacy;
-use App\traits\{ResponseJsonTrait,UploadFileTrait};
+use App\traits\{ResponseJsonTrait, UploadFileTrait};
 use App\Http\Controllers\Controller;
 
 class PharmacyController extends Controller
@@ -15,11 +15,11 @@ class PharmacyController extends Controller
     public function index()
     {
         $pharmacies = Pharmacy::all();
-        return $this->sendSuccess('All Pharmacies Retrieved Successfully!',  $pharmacies);
+        return $this->sendSuccess('All Pharmacies Retrieved Successfully!', $pharmacies);
     }
     public function show(string $id)
     {
-        $pharmacy = Pharmacy::with('products')->findOrFail($id);
+        $pharmacy = Pharmacy::findOrFail($id);
         return $this->sendSuccess('Product Retrieved Successfully!', $pharmacy);
     }
     public function store(PharmacyRequest $request)

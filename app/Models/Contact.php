@@ -2,9 +2,7 @@
 namespace App\Models;
 use App\traits\UsesUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Illuminate\Database\Eloquent\{Model,SoftDeletes};
 class Contact extends Model
 {
     use HasFactory,UsesUuid,SoftDeletes;
