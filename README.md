@@ -3,7 +3,7 @@
 A full-stack pharmaceutical web platform built to help companies **showcase their products**, **highlight their sponsors**, **gather real customer reviews**, and **display pharmacy locations** via maps — all through a secure and scalable admin dashboard.
 
 <p align="center">
-  <img src="./public/Ramen-Pharama.jpg" alt="Ramena Pharma Logo" width="200"/>
+  <img src="./public/Ramen-Pharama.jpg" alt="Ramena Pharma Logo" width="200" border-raduis="50%"/>
 </p>
 
 
@@ -58,7 +58,7 @@ Looking to build your next digital product?
 We’re open to freelance opportunities and collaborations.
 
 📧 Email: abdelrhmanabdelsamie@gmail.com  
-🌐 LinkedIn: [linkedin.com/in/abdelrahmanabdelsamie](https://linkedin.com/in/abdelrahmanabdelsamie)  
+🌐 LinkedIn: [linkedin.com/in/abdelrahmanabdelsamie](https://www.linkedin.com/in/abdelrahman-abdelsamie-hussain-177021221/)  
 📦 GitHub: [github.com/abdelrahmanabdelsamie7](https://github.com/abdelrahmanabdelsamie7)
 
 ---
