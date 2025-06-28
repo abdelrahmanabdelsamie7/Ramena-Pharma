@@ -57,7 +57,7 @@ Check out the full visual walkthrough of this project:
 Looking to build your next digital product?  
 We’re open to freelance opportunities and collaborations.
 
-📧 Email: your@email.com  
+📧 Email: abdelrhmanabdelsamie@gmail.com  
 🌐 LinkedIn: [linkedin.com/in/abdelrahmanabdelsamie](https://linkedin.com/in/abdelrahmanabdelsamie)  
 📦 GitHub: [github.com/abdelrahmanabdelsamie7](https://github.com/abdelrahmanabdelsamie7)
 
