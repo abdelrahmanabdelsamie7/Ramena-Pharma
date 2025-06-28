@@ -3,9 +3,8 @@
 A full-stack pharmaceutical web platform built to help companies **showcase their products**, **highlight their sponsors**, **gather real customer reviews**, and **display pharmacy locations** via maps — all through a secure and scalable admin dashboard.
 
 <p align="center">
-  <img src="./public/Ramen-Pharama.jpg" alt="Ramena Pharma Logo" width="200" style="border-raduis:'50%'"/>
+  <img src="./public/Ramen-Pharama.jpg" alt="Ramena Pharma Logo" width="200" style="border-raduis:50%"/>
 </p>
-
 
 ---
 
